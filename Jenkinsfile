@@ -33,6 +33,7 @@ pipeline {
                     if (fileExists('build/index.html')){
                         sh '''
                             test -f build/index.html
+                            npm test
                         '''
                         echo "Ok! File build/index.html exists"
                     } else {
