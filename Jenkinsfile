@@ -28,14 +28,16 @@ pipeline {
                 }
             }
             steps {
-                echo "Test stage"
-                if (fileExists('build/index.html')){
-                    sh '''
-                        test -f build/index.html
-                    '''
-                    echo "Ok! File build/index.html exists"
-                } else {
-                    echo "Error! File build/index.html not exists"
+                script {
+                    echo "Test stage"
+                    if (fileExists('build/index.html')){
+                        sh '''
+                            test -f build/index.html
+                        '''
+                        echo "Ok! File build/index.html exists"
+                    } else {
+                        echo "Error! File build/index.html not exists"
+                    }
                 }
             }
         }
