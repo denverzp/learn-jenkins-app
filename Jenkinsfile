@@ -92,7 +92,7 @@ pipeline {
                 '''
 
                 script {
-                    env.STAGING_URL = sh(script: "node_modules/.bin/netlify node-jq -r '.deploy_url' deploy_stage.json", returnStdout: true)
+                    env.STAGING_URL = sh(script: "node_modules/.bin/node-jq -r '.deploy_url' deploy_stage.json", returnStdout: true)
                 }
 
                 sh 'rm deploy_stage.json'
