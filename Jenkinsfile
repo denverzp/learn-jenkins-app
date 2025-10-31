@@ -101,6 +101,12 @@ pipeline {
                     sh '''
                         aws --version
                         aws s3 ls
+
+                        echo "Hello AWS S3" > index.html
+                        BASKET_NAME="learn-jenkins-202510311020"
+                        aws s3 cp index.html s3://$BASKET_NAME/site/index.html
+
+                        aws s3 ls
                     '''
                 }
             }
